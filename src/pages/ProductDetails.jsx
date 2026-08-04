@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { show } from '../services/productService'
+import { useParams, Link, useNavigate } from 'react-router-dom'
+import { show , deleteProduct } from '../services/productService'
 
 const ProductDetails = () => {
+  const Navigate = useNavigate()
   const { productId } = useParams()
   const [product, setProduct] = useState(null)
 
@@ -18,6 +19,11 @@ const ProductDetails = () => {
 
   if (!product) return <p>Loading...</p>
 
+const handleDelete = async () => {
+    await deleteProduct(productId)
+    Navigate('/products')
+}
+
   return (
     <div>
         <h1>Product Details</h1>
@@ -27,6 +33,7 @@ const ProductDetails = () => {
         <p>Price: {product.price}</p>
         <p>Quantity: {product.quantity}</p>
       <Link to={`/products/${product._id}/edit`}>Edit</Link>
+      <button onClick={handleDelete}>Delte product</button>
       <br />
       <Link to="/products">Back to Products list</Link>
     </div>
