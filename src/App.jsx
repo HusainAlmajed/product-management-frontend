@@ -6,6 +6,7 @@ import ProductDetails from "./pages/ProductDetails";
 import ProductForm from "./pages/ProductForm";
 import ProductList from "./pages/ProductList";
 import Navbar from './components/NavBar'
+import UpdateProduct from "./pages/UpdateProduct";
 
 const App = () => {
 
@@ -30,6 +31,7 @@ const App = () => {
       <Route path="/products" element={<ProductList products={products} />} />
       <Route path="/products/:productId" element={<ProductDetails products={products} />} />
       <Route path="/products/new" element={<ProductForm />} />
+      <Route path="/products/:productid/edit" element={<UpdateProduct />} />
 
     </Routes>
 

@@ -21,8 +21,8 @@ const ProductList = () => {
           <Link to={`/products/${product._id}`}>
             <h3>{product.title}</h3>
           </Link>
-          <p>Category: {product.category}</p>
-          <p>Price: {product.price}</p>
+          {/* <p>Category: {product.category}</p> */}
+          {/* <p>Price: {product.price}</p> */}
         </div>
       ))}
     </div>
